@@ -219,7 +219,9 @@ article.active {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .h2,
 .h3,
 .h4,
@@ -497,11 +499,18 @@ main {
 
 .about .article-title { margin-bottom: 15px; }
 
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
 .about-text {
   color: var(--light-gray);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
+  flex:1;
 }
 
 .about-text p { margin-bottom: 15px; }
@@ -1499,7 +1508,50 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .skills-item:not(:last-child) { margin-bottom: 25px; }
+  .resume {
+    position: relative;
+  }
+  .resume-nav-fixed {
+    position: sticky;
+    top: 80px;
+    float: right; 
+    background-color: rgba(0, 0, 0, 0.6); /* 투명 검정 */
+    border: 2px solid hsl(45, 54%, 58%); /* vegas-gold */
+    border-radius: 12px;
+    padding: 16px 20px;
+    z-index: 999;
+    box-shadow: 0 16px 30px hsla(0, 0%, 0%, 0.25); /* --shadow-2 */
+    backdrop-filter: blur(4px);
+  }
 
+  .resume-nav-fixed ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .resume-nav-fixed li {
+    margin-bottom: 10px;
+  }
+
+  .resume-nav-fixed a {
+    color: hsl(45, 100%, 72%); /* --orange-yellow-crayola */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s;
+  }
+
+  .resume-nav-fixed a.active {
+    color: white;
+    text-shadow: 0 0 5px hsl(45, 100%, 72%);
+    transform: scale(1.1);
+  }
+
+  .resume-nav-fixed a:hover {
+    color: white;
+    text-decoration: underline;
+  }
 
 
   /**
