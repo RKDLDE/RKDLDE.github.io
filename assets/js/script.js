@@ -157,3 +157,60 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// EmailJS 초기화
+emailjs.init("zjrpjkm6TE_0JwtAm"); 
+
+const form2 = document.getElementById("contact-form");
+
+if (form2) {
+  form2.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_d00p1dn",      
+      "template_may9y29",     
+      this
+    )
+    .then(() => {
+      Swal.fire({
+        icon: 'success',
+        title: '메일 전송 완료!',
+        text: '성공적으로 메일을 보냈습니다',
+      });
+      form2.reset();
+    })
+    .catch((error) => {
+      Swal.fire({
+        icon: 'error',
+        title: '전송 실패',
+        text: '메일을 보내는 중 문제가 발생했습니다.',
+      });
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".resume-nav-fixed a");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute("id");
+          const link = document.querySelector(`.resume-nav-fixed a[href="#${id}"]`);
+
+          if (entry.isIntersecting) {
+            navLinks.forEach((el) => el.classList.remove("active"));
+            link.classList.add("active");
+          }
+        });
+      },
+      {
+        rootMargin: "-50% 0px -50% 0px", // 중앙 기준
+        threshold: 0
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
