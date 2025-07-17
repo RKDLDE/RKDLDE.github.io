@@ -9,16 +9,16 @@ Web developer
 Show Contacts
 
 Email
-richard@example.com
+rkdkang1112@naver.com
 
 Phone
-+1 (213) 352-2795
++82 010-8452-8429
 
 Birthday
-June 23, 1982
+2001.11.12
 
 Location
-Sacramento, California, USA
+경기도 부천시
 
 # navbar
 
