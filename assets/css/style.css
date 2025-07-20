@@ -1252,7 +1252,27 @@ main {
   font-weight: var(--fw-300);
 }
 
+.zigzag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 10px 0px 0px;
+  margin: 0;
+  list-style: none;
+}
 
+.zigzag-item {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.zigzag-item > * {
+  flex: 1 1 0;
+  max-width: 50%;
+}
 
 
 
@@ -1891,6 +1911,19 @@ textarea.form-input::-webkit-resizer { display: none; }
   .social-list { justify-content: center; padding-bottom: 20px; padding-top: 0px;}
   .resume-nav-fixed {
     display: none;
+  }
+
+  .zigzag-item {
+    flex-direction: column !important;
+  }
+
+  .zigzag-item.reverse {
+    flex-direction: column-reverse !important;
+  }
+
+  .zigzag-item > * {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
