@@ -446,11 +446,49 @@ main {
 }
 
 .social-item .social-link {
+  position: relative;
   color: var(--light-gray-70);
   font-size: 18px;
 }
 
+.social-item .social-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%; /* 카드 내부에서 위로 */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--vegas-gold);
+  color: black;
+  padding: 3px 5px;
+  font-size: 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: var(--shadow-3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
 
+.social-item .social-link::before {
+  content: '';
+  position: absolute;
+  bottom: 80%; /* 툴팁 바로 아래 붙도록 */
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--vegas-gold);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 99;
+}
+
+.social-item .social-link:hover::after,
+.social-item .social-link:hover::before {
+  opacity: 1;
+}
 .social-item .social-link:hover { color: var(--light-gray); }
 
 
