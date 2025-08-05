@@ -775,9 +775,19 @@ main {
 .tech-title {
   font-size: 1.5rem;
   color: #fff;
-  margin: 2rem 0 1rem;
+  margin: 1rem 0 1rem;
+}
+.tech-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
+.tech-column {
+  flex: 1;
+  min-width: 300px;
+}
 .tech-list {
   padding: 10px;
   display: flex;
